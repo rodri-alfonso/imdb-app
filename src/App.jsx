@@ -3,12 +3,12 @@ import Search from './pages/Search'
 import Profile from './pages/Profile'
 import Layout from './components/Layout'
 
-function App() {
+const App = () => {
 	return (
 		<Layout>
 			<Router>
 				<Switch>
-					<Route exact path='/profile' component={Profile} />
+					<Route exact path='/movie/:title' component={Profile} />
 					<Route exact path='/' component={Search} />
 					<Redirect to='/' />
 				</Switch>
