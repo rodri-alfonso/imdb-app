@@ -6,7 +6,7 @@ const Search = () => {
 	return (
 		<Container>
 			<SearchForm />
-			<MoviesSelector movies={movies} onClick={handleSelectMovie} />
+			<MoviesSelector />
 		</Container>
 	)
 }

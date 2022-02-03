@@ -7,6 +7,6 @@ const Layout = ({ children }) => {
 export default Layout
 
 const Container = styled.div`
-	background: pink;
+	background: grey;
 	padding: 30px;
 `
