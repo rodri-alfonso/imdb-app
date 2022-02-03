@@ -1,8 +1,8 @@
-import { useSetMovie } from '../../context/movie'
+import { useContextMovie } from '../../context/movie'
 import styled from 'styled-components'
 
 const Profile = () => {
-	const { movieState } = useSetMovie()
+	const { movieState } = useContextMovie()
 	const { title, description, image } = movieState
 
 	return (

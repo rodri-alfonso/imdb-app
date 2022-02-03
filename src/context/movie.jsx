@@ -11,7 +11,7 @@ function movieReducer(state, action) {
 		case SET_MOVIE:
 			return { ...action.payload }
 		default:
-			return null
+			return { ...state }
 	}
 }
 
@@ -23,7 +23,7 @@ function MovieProvider({ children }) {
 	return <MovieContext.Provider value={value}>{children}</MovieContext.Provider>
 }
 
-function useSetMovie() {
+function useContextMovie() {
 	const { dispatch, movieState } = useContext(MovieContext)
 
 	const setMovie = (movie) => {
@@ -36,4 +36,4 @@ function useSetMovie() {
 	return { setMovie, movieState }
 }
 
-export { MovieProvider, useSetMovie }
+export { MovieProvider, useContextMovie }
