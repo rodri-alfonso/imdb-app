@@ -4,7 +4,7 @@ const SET_MOVIE = 'SET_MOVIE'
 
 export const MovieContext = createContext()
 
-const initialState = localStorage.getItem('movie') && JSON.parse(localStorage.getItem('movie'))
+const initialState = localStorage.getItem('movie') ? JSON.parse(localStorage.getItem('movie')) : {}
 
 function movieReducer(state, action) {
 	switch (action.type) {
