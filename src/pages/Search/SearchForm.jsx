@@ -1,14 +1,15 @@
 import styled from 'styled-components'
 import { useState } from 'react'
 import { useMovies } from '../../hooks/useMovies'
+import { useContextKeyword } from '../../context/keyword'
 
 const SearchForm = () => {
 	const [keyword, setKeyword] = useState('')
-	const { fetchMovies } = useMovies()
+	const { setContextKeyword } = useContextKeyword()
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
-		fetchMovies(keyword)
+		setContextKeyword(keyword)
 	}
 
 	return (
