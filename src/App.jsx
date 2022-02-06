@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import Search from './pages/Search'
 import Profile from './pages/Profile'
 import Layout from './components/Layout'
+import Header from './components/Header'
 
 const MainRouter = () => {
 	return (
@@ -14,11 +15,14 @@ const MainRouter = () => {
 }
 const App = () => {
 	return (
-		<Layout>
-			<Router>
-				<MainRouter />
-			</Router>
-		</Layout>
+		<>
+			{/* <Header /> */}
+			<Layout>
+				<Router>
+					<MainRouter />
+				</Router>
+			</Layout>
+		</>
 	)
 }
 
