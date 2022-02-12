@@ -1,18 +1,20 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
+import { useContextMovie } from '../context/movie'
+
 import { ENVIRONMENTS } from '../Constants/environments'
 import axios from 'axios'
-import { useContextKeyword } from '../context/keyword'
 
 const { API_KEY, BASE_URL } = ENVIRONMENTS
 
-export const useMovies = () => {
-	const { contextKeyword } = useContextKeyword()
-	const [movies, setMovies] = useState([])
-	const [hasError, setHasError] = useState(false)
-	const [isLoading, setIsLoading] = useState(false)
+const [movie, setMovie] = useState({})
+const [hasError, setHasError] = useState(false)
+const [isLoading, setIsLoading] = useState(false)
+
+export const useMovie = () => {
+	const { setMovie } = useContextMovie()
 
 	useEffect(() => {
-		const fetchMovies = async () => {
+		const fetchMovie = async () => {
 			if (contextKeyword) {
 				setIsLoading(true)
 				try {
@@ -20,7 +22,7 @@ export const useMovies = () => {
 					if (res.data.errorMessage) {
 						setHasError(true)
 					}
-					setMovies(res.data.results)
+					setMovie(res.data.results)
 					setIsLoading(false)
 				} catch (error) {
 					setIsLoading(false)
@@ -28,8 +30,6 @@ export const useMovies = () => {
 				}
 			}
 		}
-		fetchMovies()
-	}, [contextKeyword])
-
-	return { movies, hasError, isLoading }
+		fetchMovie()
+	}, [])
 }
